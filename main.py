@@ -15,7 +15,9 @@ chrome_options.add_argument("--window-size=1920x1080")
 chrome_driver = os.getcwd() +"/chromedriver"
 driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
 
-def namer():
+def getter(URL):
+    
+    
     pageName = driver.execute_script("return _satellite.getVar('pageName')")
     print(pageName)
     return pageName
@@ -31,4 +33,5 @@ def full(css,t):
 def filler(css,amount):
     inputElement = driver.find_element_by_name(css)
     inputElement.send_keys(amount)
-    inputElemen
+    inputElement.send_keys(Keys.ENTER)
+    namer()
